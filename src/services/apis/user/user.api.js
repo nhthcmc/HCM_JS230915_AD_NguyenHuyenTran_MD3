@@ -2,7 +2,6 @@ import axios from "axios";
 
 export default {
     findAll: async () => {
-        console.log("i",import.meta.env.SERVER_HOST);
         return await axios.get(`http://127.0.0.1:3000/users`)
     },
     create: async (data) => {

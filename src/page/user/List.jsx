@@ -1,7 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import UserCreateForm from './UserCreateForm'
-import UserUpdateForm from './UserUpdateForm'
 import { userAction } from '../../store/slices/user.slice';
 import { Modal,Button } from 'antd';
 import api from '../../services/apis/index';
@@ -9,15 +7,6 @@ import api from '../../services/apis/index';
 export default function List({ setShowUpdateForm, showUpdateForm, setId }) {
     const dispatch = useDispatch()
     const userStore = useSelector(store => store.userStore);
-    // const [id, setId] = useState(null)
-    // const [sortAsc, setSortAsc] = useState(true)
-    // const handleSortById = () => {
-    //     setSortAsc(!sortAsc);
-    //     const sortedData = userStore.data.slice().sort((a, b) => {
-    //         return sortAsc ? a.id - b.id : b.id - a.id;
-    //     });
-    //     dispatch(userAction.setData(sortedData))
-    // }
     async function handleDeleteUser(userId) {
         try {
             await api.user.delete(userId)
@@ -34,34 +23,8 @@ export default function List({ setShowUpdateForm, showUpdateForm, setId }) {
         }
     }
 
-    // const columns = [
-    //     {
-    //         title: 'Id',
-    //         dataIndex: 'id',
-    //         sorter: {
-    //             compare: (a, b) => a.id - b.id,
-    //         },
-    //     },
-    //     {
-    //         title: 'Name',
-    //         dataIndex: 'name',
-    //     },
-    //     {
-    //         title: 'Description',
-    //         dataIndex: 'des'
-    //     },
-    //     {
-    //         title: 'Actions',
-    //         colSpan: 2,
-    //         dataIndex: 'action'
-    //     },
-    // ];
-
     return (
         < div >
-            {/* {
-                userStore.addModal && <UserCreateForm dispatch={dispatch} />
-            } */}
             <table>
                 <tr>
                     <th>Id</th>

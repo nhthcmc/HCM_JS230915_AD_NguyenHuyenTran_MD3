@@ -24,9 +24,6 @@ const userSlice = createSlice({
         delete: (state, action) => {
             state.data = state.data.filter((item) => item.id != action.payload);
         },
-        // toggleSortAsc: (state) => {
-        //     state.sortAsc = !state.sortAsc;
-        // },
     }
 })
 

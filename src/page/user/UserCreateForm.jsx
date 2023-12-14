@@ -1,7 +1,7 @@
 import React from 'react'
 import { userAction } from '../../store/slices/user.slice';
 import api from '../../services/apis/index';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 export default function UserCreateForm() {
     const dispatch = useDispatch()
@@ -13,14 +13,11 @@ export default function UserCreateForm() {
                 name: e.target.name.value,
                 des: e.target.des.value,
             }
-            console.log("aaaaassss",newUser);
             let result = await api.user.create(newUser)
-            console.log("aaaa",result.data);
             dispatch(userAction.create(result.data.data))
             e.target.name.value = ""
             e.target.des.value = ""
         } catch (err) {
-            console.log("vafo day");
             alert("Error")
         }
     }
