@@ -11,17 +11,19 @@ export default function Page() {
   const [id, setId] = useState(null)
 
   return (
-    <>
-      <Button
-        type="primary"
-        style={{ background: "green", color: "white" }}
-        onClick={() => {
-          setShowCreateFrom(!showCreateFrom)
-        }}>Create Student</Button>
-      {showCreateFrom && <UserCreateForm />}
-      {showUpdateFrom && <UserUpdateForm id={id} />}
-      <div className='studentList'>Student List</div>
+    <div className='page'>
+      <div className='button'>
+        <Button
+          type="primary"
+          style={{ background: "green", color: "white" }}
+          onClick={() => {
+            setShowCreateFrom(!showCreateFrom)
+          }}>Create Student</Button>
+        {showCreateFrom && <UserCreateForm />}
+        {showUpdateFrom && <UserUpdateForm id={id} />}
+      </div>
+      <div className='studentList'><span>Student List</span></div>
       <List setShowUpdateFrom={setShowUpdateFrom} showUpdateFrom={showUpdateFrom} setId={setId} />
-    </>
+    </div>
   )
 }

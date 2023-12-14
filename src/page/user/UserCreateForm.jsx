@@ -26,6 +26,7 @@ export default function UserCreateForm() {
             <form onSubmit={(e) => {
                 handleAddUser(e)
             }}>
+                <caption>Create a new student!</caption>
                 <label>
                     <span>Name</span>
                     <input type='text' name='name'></input>

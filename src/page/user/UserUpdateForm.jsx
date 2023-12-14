@@ -28,6 +28,7 @@ export default function UserUpdateForm(id) {
                 onSubmit={(e) => {
                     handleUpdateUser(e)
                 }}>
+                <caption>Update student</caption>
                 <label>
                     <span>Name</span>
                     <input type='text' name='name'></input>

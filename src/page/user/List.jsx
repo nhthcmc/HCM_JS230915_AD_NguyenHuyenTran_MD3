@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { userAction } from '../../store/slices/user.slice';
-import { Modal,Button } from 'antd';
+import { Modal, Button } from 'antd';
 import api from '../../services/apis/index';
 
 export default function List({ setShowUpdateForm, showUpdateForm, setId }) {
@@ -15,7 +15,6 @@ export default function List({ setShowUpdateForm, showUpdateForm, setId }) {
                 content: 'Delete this student?',
                 onOk: () => {
                     dispatch(userAction.delete(userId))
-
                 }
             })
         } catch (err) {
@@ -24,7 +23,7 @@ export default function List({ setShowUpdateForm, showUpdateForm, setId }) {
     }
 
     return (
-        < div >
+        <div className='list'>
             <table>
                 <tr>
                     <th>Id</th>
@@ -63,6 +62,6 @@ export default function List({ setShowUpdateForm, showUpdateForm, setId }) {
                     })
                 }
             </table>
-        </div >
+        </div>
     )
 }
